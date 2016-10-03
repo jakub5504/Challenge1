@@ -11,4 +11,13 @@ import java.util.stream.Stream;
  */
 public class StreamTree {
 
+        public static void main(String[] args) {
+            try (Stream<Path> paths = Files.walk(Paths.get("/test"))) {
+                paths.forEach(System.out::println);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 }
+

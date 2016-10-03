@@ -4,8 +4,6 @@ package com.gft.calendar;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-
-import java.time.Month;
 import java.util.Iterator;
 
 public class DateIterator implements Iterator<LocalDate>{
@@ -18,12 +16,10 @@ public class DateIterator implements Iterator<LocalDate>{
     }
 
     public LocalDate next() {
-        DayOfWeek thursday = DayOfWeek.THURSDAY;
+        DayOfWeek tuesday = DayOfWeek.TUESDAY;
         DayOfWeek friday = DayOfWeek.FRIDAY;
-        System.out.println("1" + localDate.getDayOfWeek());
         localDate = localDate.plusDays(1);
-        System.out.println("3:" + localDate.getDayOfWeek());
-        while(!localDate.getDayOfWeek().equals(friday) && !localDate.getDayOfWeek().equals(thursday))
+        while(!localDate.getDayOfWeek().equals(friday) && !localDate.getDayOfWeek().equals(tuesday))
         {
             localDate = localDate.plusDays(1);
         }

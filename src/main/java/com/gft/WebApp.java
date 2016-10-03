@@ -1,10 +1,6 @@
 package com.gft;
 
-import com.gft.calendar.DateIterable;
-import com.gft.calendar.DateIterator;
 import com.gft.directory.tree.Tree;
-import com.gft.messaging.WebSocketSubscribe;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -18,9 +14,6 @@ import static com.gft.directory.tree.Tree.showFiles;
  */
 @SpringBootApplication
 public class WebApp {
-
-    @Autowired
-    private WebSocketSubscribe webSocketSubscribe;
 
     public static void main(String[] args){
 
