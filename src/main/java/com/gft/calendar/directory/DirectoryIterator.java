@@ -1,5 +1,6 @@
 package com.gft.calendar.directory;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -8,8 +9,9 @@ import java.util.List;
  */
 public class DirectoryIterator implements Iterator<Leaf> {
 
-    List<Branch> branches;
-    List<Leaf> leafs;
+    List<Branch> branches = new ArrayList<>();
+    List<Leaf> leafs= new ArrayList<>();
+    int index = 0;
 
     public DirectoryIterator(Branch root) {
         this.branches = root.getBranches();
@@ -18,11 +20,13 @@ public class DirectoryIterator implements Iterator<Leaf> {
 
     @Override
     public boolean hasNext() {
-        return false;
+        return true;
     }
 
     @Override
     public Leaf next() {
-        return null;
+
+        return leafs.get(index++);
+
     }
 }

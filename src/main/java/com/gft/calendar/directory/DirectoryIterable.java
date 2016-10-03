@@ -1,7 +1,5 @@
 package com.gft.calendar.directory;
 
-import java.util.Iterator;
-
 /**
  * Created by jbki on 10/3/2016.
  */
@@ -14,7 +12,7 @@ public class DirectoryIterable implements Iterable<Leaf>{
     }
 
     @Override
-    public Iterator iterator() {
+    public DirectoryIterator iterator() {
         return new DirectoryIterator(root);
     }
 }

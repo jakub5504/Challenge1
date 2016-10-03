@@ -5,5 +5,5 @@ package com.gft.calendar.directory;
  */
 public interface Leaf {
 
-
+    String getLeafName();
 }

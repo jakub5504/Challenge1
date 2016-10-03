@@ -3,9 +3,13 @@ package com.gft.calendar.directory;
 /**
  * Created by jbki on 10/3/2016.
  */
-public class LeafImpl {
+public class LeafImpl implements Leaf {
 
     private String leafName;
+
+    public LeafImpl(String leafName) {
+        this.leafName = leafName;
+    }
 
     public String getLeafName() {
         return leafName;

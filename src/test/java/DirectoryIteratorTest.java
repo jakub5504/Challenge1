@@ -1,4 +1,4 @@
-import com.gft.calendar.directory.BranchImpl;
+import com.gft.calendar.directory.*;
 import org.junit.Test;
 
 /**
@@ -8,8 +8,20 @@ public class DirectoryIteratorTest {
 
     @Test
     public void shouldReturnExpectedValueAfterIteration(){
+        Branch root = new BranchImpl("Root");
+        Leaf leafOne = new LeafImpl("LeafOne");
+        root.addSubLeaf(leafOne);
+        Branch branchOne = new BranchImpl("BranchOne");
+        root.addSubBranch(branchOne);
+        Leaf leafTwo = new LeafImpl("LeafTwo");
+        branchOne.addSubLeaf(leafTwo);
+        Branch branchTwo = new BranchImpl("BranchTwo");
+        branchOne.addSubBranch(branchTwo);
+        Leaf leafThree = new LeafImpl("LeafThree");
+        Leaf leafFour = new LeafImpl("LeafFour");
+        branchTwo.addSubLeaf(leafThree,leafFour);
 
-        BranchImpl root = new BranchImpl();
-
+        DirectoryIterable dirIterqable = new DirectoryIterable(root);
+        DirectoryIterator dirIterator = dirIterqable.iterator();
     }
 }
