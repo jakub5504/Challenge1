@@ -1,7 +1,5 @@
 import com.gft.calendar.DateIterable;
 import com.gft.calendar.DateIterator;
-import com.gft.calendar.directory.DirectoryIterable;
-import com.gft.calendar.directory.DirectoryIterator;
 import org.junit.Test;
 
 import java.time.DayOfWeek;
@@ -34,12 +32,5 @@ public class DateIterableTest {
         firstDateObject.iterator().next();
         LocalDate firstResult = firstDateIterator.next();
         assertEquals("Program did not return THURSDAY value", DayOfWeek.TUESDAY, firstResult.getDayOfWeek());
-    }
-
-    @Test
-    public void testTest(){
-        DirectoryIterable fileIterable = new DirectoryIterable();
-        DirectoryIterator fileIterator = fileIterable.iterator();
-        System.out.println(fileIterator.hasNext());
     }
 }
