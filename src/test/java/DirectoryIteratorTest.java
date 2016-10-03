@@ -1,4 +1,4 @@
-import com.gft.calendar.directory.*;
+import com.gft.directory.*;
 import org.junit.Test;
 
 /**

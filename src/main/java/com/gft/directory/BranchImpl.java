@@ -1,4 +1,4 @@
-package com.gft.calendar.directory;
+package com.gft.directory;
 
 import java.util.ArrayList;
 import java.util.List;
