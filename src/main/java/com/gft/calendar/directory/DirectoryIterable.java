@@ -1,18 +1,20 @@
 package com.gft.calendar.directory;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Iterator;
 
 /**
  * Created by jbki on 10/3/2016.
  */
-public class DirectoryIterable implements Iterable<File>{
+public class DirectoryIterable implements Iterable<Leaf>{
 
-    private Path path = Paths.get("C:\\test");
+    private Branch root;
+
+    public DirectoryIterable(Branch root) {
+        this.root = root;
+    }
 
     @Override
-    public DirectoryIterator iterator() {
-        return new DirectoryIterator(path);
+    public Iterator iterator() {
+        return new DirectoryIterator(root);
     }
 }
