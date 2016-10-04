@@ -1,7 +1,7 @@
 package com.gft.directory;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,9 +9,9 @@ import java.util.List;
  */
 public class DirectoryIterator implements Iterator<Leaf> {
 
-    List<Branch> branches = new ArrayList<>();
-    List<Leaf> leafs= new ArrayList<>();
-    int index = 0;
+    private LinkedList<Branch> branches = new LinkedList<>();
+    private LinkedList<Leaf> leafs = new LinkedList<>();
+
 
     public DirectoryIterator(Branch root) {
         this.branches = root.getBranches();
@@ -20,21 +20,35 @@ public class DirectoryIterator implements Iterator<Leaf> {
 
     @Override
     public boolean hasNext() {
-        if(!branches.isEmpty()){
-            DirectoryIterable dirIterable = new DirectoryIterable(branches.get(0));
-            DirectoryIterator dirIterator = dirIterable.iterator();
-            dirIterator.hasNext();
+        if (!leafs.isEmpty()) {
+                return true;
+        } else {
+            if (!branches.isEmpty()) {
+                LinkedList<Branch> tempBranchList = branches.get(0).getBranches();
+                LinkedList<Leaf> tempLeafList = branches.get(0).getLeafs();
+                branches.remove(0);
+                leafs.addAll(0,tempLeafList);
+                branches.addAll(0,tempBranchList);
+                return true;
+            } else {
+                return false;
+            }
         }
-        else if (!leafs.isEmpty()){
-
-        }
-        return true;
     }
 
     @Override
     public Leaf next() {
 
-        return leafs.get(index++);
+        Leaf returnLeaf = leafs.get(0);
+        leafs.remove(0);
+        return returnLeaf;
+    }
 
+    public List<Branch> getBranches() {
+        return branches;
+    }
+
+    public List<Leaf> getLeafs() {
+        return leafs;
     }
 }

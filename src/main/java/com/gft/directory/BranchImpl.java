@@ -1,15 +1,14 @@
 package com.gft.directory;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 /**
  * Created by jbki on 10/3/2016.
  */
 public class BranchImpl implements Branch{
 
-    List<Branch> branches = new ArrayList<>();
-    List<Leaf> leafs = new ArrayList<>();
+    LinkedList<Branch> branches = new LinkedList<>();
+    LinkedList<Leaf> leafs = new LinkedList<>();
     private String branchName;
 
     public BranchImpl(String branchName ) {
@@ -35,11 +34,11 @@ public class BranchImpl implements Branch{
         leafs.add(leafTwo);
     }
 
-    public List<Branch> getBranches() {
+    public LinkedList<Branch> getBranches() {
         return branches;
     }
 
-    public List<Leaf> getLeafs() {
+    public LinkedList<Leaf> getLeafs() {
         return leafs;
     }
 
