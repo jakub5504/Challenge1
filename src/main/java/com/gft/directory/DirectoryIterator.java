@@ -20,6 +20,14 @@ public class DirectoryIterator implements Iterator<Leaf> {
 
     @Override
     public boolean hasNext() {
+        if(!branches.isEmpty()){
+            DirectoryIterable dirIterable = new DirectoryIterable(branches.get(0));
+            DirectoryIterator dirIterator = dirIterable.iterator();
+            dirIterator.hasNext();
+        }
+        else if (!leafs.isEmpty()){
+
+        }
         return true;
     }
 

@@ -23,5 +23,8 @@ public class DirectoryIteratorTest {
 
         DirectoryIterable dirIterqable = new DirectoryIterable(root);
         DirectoryIterator dirIterator = dirIterqable.iterator();
+        System.out.println(dirIterator.next().getLeafName());
+        System.out.println(dirIterator.next().getLeafName());
+
     }
 }
