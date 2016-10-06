@@ -24,16 +24,31 @@ public class DirectoryIterator implements Iterator<Leaf> {
                 return true;
         } else {
             if (!branches.isEmpty()) {
-                LinkedList<Branch> tempBranchList = branches.get(0).getBranches();
-                LinkedList<Leaf> tempLeafList = branches.get(0).getLeafs();
-                branches.remove(0);
-                leafs.addAll(0,tempLeafList);
-                branches.addAll(0,tempBranchList);
-                return true;
+                if(!branches.get(0).getLeafs().isEmpty() && !branches.get(0).getBranches().isEmpty()) {
+                    LinkedList<Leaf> tempLeafList = branches.get(0).getLeafs();
+                    LinkedList<Branch> tempBranchList = branches.get(0).getBranches();
+                    branches.remove(0);
+                    branches.addAll(0,tempBranchList);
+                    leafs.addAll(0,tempLeafList);
+                    return true;
+                }
+                else if(!branches.get(0).getBranches().isEmpty() && branches.get(0).getLeafs().isEmpty()) {
+                    LinkedList<Branch> tempBranchList = branches.get(0).getBranches();
+                    branches.remove(0);
+                    branches.addAll(0,tempBranchList);
+                }
+                else if (branches.get(0).getBranches().isEmpty() && !branches.get(0).getLeafs().isEmpty()){
+                    LinkedList<Leaf> tempLeafList = branches.get(0).getLeafs();
+                    branches.remove(0);
+                    leafs.addAll(0,tempLeafList);
+                    return true;
+                }
+
             } else {
                 return false;
             }
         }
+        return false;
     }
 
     @Override

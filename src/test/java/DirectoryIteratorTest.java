@@ -14,9 +14,70 @@ import static org.hamcrest.Matchers.is;
  */
 public class DirectoryIteratorTest {
 
+
+
+    @Test
+    public void shouldReturnAllLeafsFromRootandSubroots(){
+        Branch root = new BranchImpl("Root");
+        Leaf leafOne = new LeafImpl("LeafOne");
+        Leaf leafTwo = new LeafImpl("LeafTwo");
+        Leaf leafThree = new LeafImpl("LeafThree");
+        Leaf leafFour = new LeafImpl("LeafFour");
+        Branch branchOne = new BranchImpl("BranchOne");
+        Branch branchTwo = new BranchImpl("BranchTwo");
+        Branch branchThree = new BranchImpl("BranchThree");
+        Branch branchFour = new BranchImpl("BranchFour");
+        root.addSubBranch(branchOne);
+        root.addSubBranch(branchTwo);
+        root.addSubBranch(branchThree);
+        branchOne.addSubLeaf(leafOne);
+        branchTwo.addSubLeaf(leafTwo);
+        branchThree.addSubBranch(branchFour);
+        branchFour.addSubLeaf(leafThree,leafFour);
+        DirectoryIterable dirIterable = new DirectoryIterable(root);
+        DirectoryIterator dirIterator = dirIterable.iterator();
+        List<Leaf> leafs = Lists.newArrayList(dirIterator);
+        for (Leaf leaf : leafs ) {System.out.println(leaf.getLeafName());}
+        assertThat(leafs,containsInAnyOrder(leafOne,leafTwo,leafThree,leafFour));
+    }
+
+    @Test
+    public void shouldReturnAllLeafsFromMoreThenTwoBranchesInRoot(){
+        Branch root = new BranchImpl("Root");
+        Leaf leafOne = new LeafImpl("LeafOne");
+        Leaf leafTwo = new LeafImpl("LeafTwo");
+        Leaf leafThree = new LeafImpl("LeafThree");
+        Branch branchOne = new BranchImpl("BranchOne");
+        Branch branchTwo = new BranchImpl("BranchTwo");
+        Branch branchThree = new BranchImpl("BranchThree");
+        root.addSubBranch(branchOne);
+        root.addSubBranch(branchTwo);
+        root.addSubBranch(branchThree);
+        branchOne.addSubLeaf(leafOne);
+        branchTwo.addSubLeaf(leafTwo);
+        branchThree.addSubLeaf(leafThree);
+        DirectoryIterable dirIterable = new DirectoryIterable(root);
+        DirectoryIterator dirIterator = dirIterable.iterator();
+        List<Leaf> leafs = Lists.newArrayList(dirIterator);
+        assertThat(leafs,containsInAnyOrder(leafOne,leafTwo,leafThree));
+
+    }
     @Test
     public void shouldReturnLeafsFromTwoBranchesInRoot(){
-
+        Branch root = new BranchImpl("Root");
+        Leaf leafOne = new LeafImpl("LeafOne");
+        Leaf leafTwo = new LeafImpl("LeafTwo");
+        Branch BranchOne = new BranchImpl("BranchOne");
+        Branch BranchTwo = new BranchImpl("BranchTwo");
+        root.addSubBranch(BranchOne);
+        root.addSubBranch(BranchTwo);
+        BranchOne.addSubLeaf(leafTwo);
+        BranchTwo.addSubLeaf(leafOne);
+        DirectoryIterable dirIterable = new DirectoryIterable(root);
+        DirectoryIterator dirIterator = dirIterable.iterator();
+        List<Leaf> leafs = Lists.newArrayList(dirIterator);
+        System.out.println(leafs.toString());
+        assertThat(leafs,containsInAnyOrder(leafOne,leafTwo));
     }
     @Test
     public void shouldReturnEmptyListForRootDirectoryWithoutLeafsAndBranches(){
@@ -83,7 +144,7 @@ public class DirectoryIteratorTest {
         DirectoryIterable dirIterable = new DirectoryIterable(root);
         DirectoryIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
-        assertThat(leafs, containsInAnyOrder(leafOne, leafFive, leafThree, leafFour, leafTwo));
-
+        for (Leaf leaf : leafs ) {System.out.println(leaf.getLeafName());}
+        assertThat(leafs, containsInAnyOrder(leafOne,leafTwo,leafThree,leafFour,leafFive));
     }
 }
