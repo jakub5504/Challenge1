@@ -43,8 +43,12 @@ public class DirectoryIterator implements Iterator<Leaf> {
                     branches.remove(0);
                     leafs.addAll(0, tempLeafList);
                     return true;
+                } else if (branches.get(0).getBranches().isEmpty() && branches.get(0).getBranches().isEmpty()){
+                    branches.remove(0);
+                    if (this.hasNext()) {
+                        return true;
+                    }
                 }
-
             } else {
                 return false;
             }
