@@ -7,8 +7,8 @@ import java.util.LinkedList;
  */
 public class BranchImpl implements Branch{
 
-    LinkedList<Branch> branches = new LinkedList<>();
-    LinkedList<Leaf> leafs = new LinkedList<>();
+    private LinkedList<Branch> branches = new LinkedList<>();
+    private LinkedList<Leaf> leafs = new LinkedList<>();
     private String branchName;
 
     public BranchImpl(String branchName ) {

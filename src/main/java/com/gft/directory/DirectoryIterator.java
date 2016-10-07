@@ -21,26 +21,27 @@ public class DirectoryIterator implements Iterator<Leaf> {
     @Override
     public boolean hasNext() {
         if (!leafs.isEmpty()) {
-                return true;
+            return true;
         } else {
             if (!branches.isEmpty()) {
-                if(!branches.get(0).getLeafs().isEmpty() && !branches.get(0).getBranches().isEmpty()) {
+                if (!branches.get(0).getLeafs().isEmpty() && !branches.get(0).getBranches().isEmpty()) {
                     LinkedList<Leaf> tempLeafList = branches.get(0).getLeafs();
                     LinkedList<Branch> tempBranchList = branches.get(0).getBranches();
                     branches.remove(0);
-                    branches.addAll(0,tempBranchList);
-                    leafs.addAll(0,tempLeafList);
+                    branches.addAll(0, tempBranchList);
+                    leafs.addAll(0, tempLeafList);
                     return true;
-                }
-                else if(!branches.get(0).getBranches().isEmpty() && branches.get(0).getLeafs().isEmpty()) {
+                } else if (!branches.get(0).getBranches().isEmpty() && branches.get(0).getLeafs().isEmpty()) {
                     LinkedList<Branch> tempBranchList = branches.get(0).getBranches();
                     branches.remove(0);
-                    branches.addAll(0,tempBranchList);
-                }
-                else if (branches.get(0).getBranches().isEmpty() && !branches.get(0).getLeafs().isEmpty()){
+                    branches.addAll(0, tempBranchList);
+                    if (this.hasNext()) {
+                        return true;
+                    }
+                } else if (branches.get(0).getBranches().isEmpty() && !branches.get(0).getLeafs().isEmpty()) {
                     LinkedList<Leaf> tempLeafList = branches.get(0).getLeafs();
                     branches.remove(0);
-                    leafs.addAll(0,tempLeafList);
+                    leafs.addAll(0, tempLeafList);
                     return true;
                 }
 

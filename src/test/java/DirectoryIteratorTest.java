@@ -1,14 +1,11 @@
 import com.gft.directory.*;
 import com.google.common.collect.Lists;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 /**
  * Created by jbki on 10/3/2016.
@@ -16,7 +13,6 @@ import static org.hamcrest.Matchers.is;
 public class DirectoryIteratorTest {
 
 
-    @Ignore
     @Test
     public void shouldReturnAllLeafsFromRootandSubroots(){
         Branch root = new BranchImpl("Root");
