@@ -1,3 +1,5 @@
+package com.gft.directorytest;
+
 import com.gft.directory.*;
 import com.google.common.collect.Lists;
 import org.junit.Test;

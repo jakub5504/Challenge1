@@ -1,5 +1,7 @@
-import com.gft.calendar.DateIterable;
-import com.gft.calendar.DateIterator;
+package com.gft.calendartest;
+
+import com.gft.calendar.CalendarIterable;
+import com.gft.calendar.CalendarIterator;
 import org.junit.Test;
 
 import java.time.DayOfWeek;
@@ -10,14 +12,14 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-public class DateIterableTest {
+public class CalendarIterableTest {
 
 
     @Test
     public void callingNextMethodShoudReturnDesiredValues() {
 
-        DateIterable dateObject = new DateIterable(LocalDate.of(2016,10,3));
-        DateIterator dateIterator = dateObject.iterator();
+        CalendarIterable dateObject = new CalendarIterable(LocalDate.of(2016,10,3));
+        CalendarIterator dateIterator = dateObject.iterator();
         LocalDate result = dateIterator.next();
         assertThat("Program did not return FRIDAY od TUESDAY value", result.getDayOfWeek(), anyOf(is(DayOfWeek.TUESDAY),is(DayOfWeek.FRIDAY)));
     }
@@ -26,8 +28,8 @@ public class DateIterableTest {
     @Test
     public void twoIteratorsShouldWorkSimultaneously(){
 
-        DateIterable firstDateObject = new DateIterable(LocalDate.of(2016,10,3));
-        DateIterator firstDateIterator = firstDateObject.iterator();
+        CalendarIterable firstDateObject = new CalendarIterable(LocalDate.of(2016,10,3));
+        CalendarIterator firstDateIterator = firstDateObject.iterator();
 
         firstDateObject.iterator().next();
         LocalDate firstResult = firstDateIterator.next();

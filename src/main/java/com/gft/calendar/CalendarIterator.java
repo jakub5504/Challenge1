@@ -6,7 +6,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Iterator;
 
-public class DateIterator implements Iterator<LocalDate>{
+public class CalendarIterator implements Iterator<LocalDate>{
 
     private LocalDate localDate;
 
@@ -27,7 +27,7 @@ public class DateIterator implements Iterator<LocalDate>{
         return localDate;
     }
 
-    public DateIterator(LocalDate currentDate ){
+    public CalendarIterator(LocalDate currentDate ){
         this.localDate = currentDate;
     }
 
@@ -41,7 +41,7 @@ public class DateIterator implements Iterator<LocalDate>{
 
     @Override
     public String toString() {
-        return "DateIterator{" +
+        return "CalendarIterator{" +
                 "localDate=" + localDate +
                 '}';
     }
