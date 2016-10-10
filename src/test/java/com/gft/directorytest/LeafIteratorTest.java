@@ -4,6 +4,7 @@ import com.gft.directory.*;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
+import java.util.Iterator;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -126,6 +127,7 @@ public class LeafIteratorTest {
         assertThat(leafs.get(0), is(leafOne));
         assertThat(leafs.get(0), is(equalTo(leafOne)));
     }
+
     @Test
     public void shouldReturnAllLeafsFromRootDirectory(){
 
@@ -143,6 +145,28 @@ public class LeafIteratorTest {
         // then
         assertThat(leafs, containsInAnyOrder(leafOne, leafTwo));
     }
+
+    @Test
+    public void nextShouldWorkWithoutHasnext(){
+
+        // given
+        Branch root = new BranchImpl("Root");
+        Branch branchOne = new BranchImpl("BranchOne");
+        Branch branchTwo = new BranchImpl("BranchTwo");
+        root.addSubBranch(branchOne);
+        branchOne.addSubBranch(branchTwo);
+        Leaf leafOne = new LeafImpl("LeafOne");
+        branchTwo.addSubLeaf(leafOne);
+
+        // when
+        Iterable<Leaf> leafIterable = new LeafIterable(root);
+        Iterator<Leaf> leafIterator = leafIterable.iterator();
+
+        // then
+        assertThat(leafIterator.next(),is(equalTo(leafOne)));
+
+    }
+
     @Test
     public void shoudReturnAllLeafsWhenOneBrancheInRootPresent(){
 
