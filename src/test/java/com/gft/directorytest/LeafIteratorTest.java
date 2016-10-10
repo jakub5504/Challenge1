@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.*;
 /**
  * Created by jbki on 10/3/2016.
  */
-public class DirectoryIteratorTest {
+public class LeafIteratorTest {
 
 
     @Test
@@ -37,8 +37,8 @@ public class DirectoryIteratorTest {
         branchFour.addSubLeaf(leafThree,leafFour);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
@@ -64,8 +64,8 @@ public class DirectoryIteratorTest {
         branchThree.addSubLeaf(leafThree);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         //then
@@ -87,8 +87,8 @@ public class DirectoryIteratorTest {
         BranchTwo.addSubLeaf(leafOne);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
@@ -101,8 +101,8 @@ public class DirectoryIteratorTest {
         Branch root = new BranchImpl("Root");
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
@@ -117,8 +117,8 @@ public class DirectoryIteratorTest {
         root.addSubLeaf(leafOne);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
@@ -136,8 +136,8 @@ public class DirectoryIteratorTest {
         root.addSubLeaf(leafOne,leafTwo);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
@@ -157,8 +157,8 @@ public class DirectoryIteratorTest {
         BranchOne.addSubLeaf(leafThree);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
@@ -184,8 +184,8 @@ public class DirectoryIteratorTest {
         branchTwo.addSubLeaf(leafThree,leafFour);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
@@ -205,8 +205,8 @@ public class DirectoryIteratorTest {
         branchThree.addSubLeaf(leafOne);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
@@ -241,8 +241,8 @@ public class DirectoryIteratorTest {
         branchEight.addSubLeaf(leafFour);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
@@ -266,8 +266,8 @@ public class DirectoryIteratorTest {
         branchTwo.addSubBranch(branchSix);
 
         // when
-        DirectoryIterable dirIterable = new DirectoryIterable(root);
-        DirectoryIterator dirIterator = dirIterable.iterator();
+        LeafIterable dirIterable = new LeafIterable(root);
+        LeafIterator dirIterator = dirIterable.iterator();
         List<Leaf> leafs = Lists.newArrayList(dirIterator);
 
         // then
