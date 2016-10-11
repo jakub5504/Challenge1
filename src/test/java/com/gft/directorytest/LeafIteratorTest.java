@@ -20,10 +20,10 @@ public class LeafIteratorTest {
     public void shouldReturnAllLeafsFromRootandSubroots(){
 
         // given
-        Branch root = new BranchImpl("Root");
-        Branch branchOne = new BranchImpl("BranchOne");
-        Branch branchTwo = new BranchImpl("BranchTwo");
-        Branch branchThree = new BranchImpl("BranchThree");
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
+        BranchImpl branchThree = new BranchImpl("BranchThree");
         root.addSubBranch(branchOne);
         root.addSubBranch(branchTwo);
         root.addSubBranch(branchThree);
@@ -31,7 +31,7 @@ public class LeafIteratorTest {
         Leaf leafTwo = new LeafImpl("LeafTwo");
         branchOne.addSubLeaf(leafOne);
         branchTwo.addSubLeaf(leafTwo);
-        Branch branchFour = new BranchImpl("BranchFour");
+        BranchImpl branchFour = new BranchImpl("BranchFour");
         branchThree.addSubBranch(branchFour);
         Leaf leafThree = new LeafImpl("LeafThree");
         Leaf leafFour = new LeafImpl("LeafFour");
@@ -50,10 +50,10 @@ public class LeafIteratorTest {
     public void shouldReturnAllLeafsFromMoreThenTwoBranchesInRoot(){
 
         // given
-        Branch root = new BranchImpl("Root");
-        Branch branchOne = new BranchImpl("BranchOne");
-        Branch branchTwo = new BranchImpl("BranchTwo");
-        Branch branchThree = new BranchImpl("BranchThree");
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
+        BranchImpl branchThree = new BranchImpl("BranchThree");
         root.addSubBranch(branchOne);
         root.addSubBranch(branchTwo);
         root.addSubBranch(branchThree);
@@ -73,13 +73,14 @@ public class LeafIteratorTest {
         assertThat(leafs,containsInAnyOrder(leafOne,leafTwo,leafThree));
 
     }
+
     @Test
     public void shouldReturnLeafsFromTwoBranchesInRoot(){
 
         // given
-        Branch root = new BranchImpl("Root");
-        Branch BranchOne = new BranchImpl("BranchOne");
-        Branch BranchTwo = new BranchImpl("BranchTwo");
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl BranchOne = new BranchImpl("BranchOne");
+        BranchImpl BranchTwo = new BranchImpl("BranchTwo");
         root.addSubBranch(BranchOne);
         root.addSubBranch(BranchTwo);
         Leaf leafOne = new LeafImpl("LeafOne");
@@ -95,6 +96,7 @@ public class LeafIteratorTest {
         // then
         assertThat(leafs,containsInAnyOrder(leafOne,leafTwo));
     }
+
     @Test
     public void shouldReturnEmptyListForRootDirectoryWithoutLeafsAndBranches(){
 
@@ -109,11 +111,12 @@ public class LeafIteratorTest {
         // then
         assertThat(leafs.isEmpty(),equalTo(true));
     }
+
     @Test
     public void shouldReturnNewlyCreatedLeaf(){
 
         // given
-        Branch root = new BranchImpl("Root");
+        BranchImpl root = new BranchImpl("Root");
         Leaf leafOne = new LeafImpl("LeafOne");
         root.addSubLeaf(leafOne);
 
@@ -132,7 +135,7 @@ public class LeafIteratorTest {
     public void shouldReturnAllLeafsFromRootDirectory(){
 
         // given
-        Branch root = new BranchImpl("Root");
+        BranchImpl root = new BranchImpl("Root");
         Leaf leafOne = new LeafImpl("LeafOne");
         Leaf leafTwo = new LeafImpl("LeafTwo");
         root.addSubLeaf(leafOne,leafTwo);
@@ -150,9 +153,9 @@ public class LeafIteratorTest {
     public void nextShouldWorkWithoutHasnext(){
 
         // given
-        Branch root = new BranchImpl("Root");
-        Branch branchOne = new BranchImpl("BranchOne");
-        Branch branchTwo = new BranchImpl("BranchTwo");
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
         root.addSubBranch(branchOne);
         branchOne.addSubBranch(branchTwo);
         Leaf leafOne = new LeafImpl("LeafOne");
@@ -164,15 +167,14 @@ public class LeafIteratorTest {
 
         // then
         assertThat(leafIterator.next(),is(equalTo(leafOne)));
-
     }
 
     @Test
     public void shoudReturnAllLeafsWhenOneBrancheInRootPresent(){
 
         // given
-        Branch root = new BranchImpl("Root");
-        Branch BranchOne = new BranchImpl("BranchOne");
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl BranchOne = new BranchImpl("BranchOne");
         Leaf leafOne = new LeafImpl("LeafOne");
         Leaf leafTwo = new LeafImpl("LeafTwo");
         root.addSubLeaf(leafOne,leafTwo);
@@ -188,20 +190,21 @@ public class LeafIteratorTest {
         // then
         assertThat(leafs, containsInAnyOrder(leafOne, leafTwo, leafThree));
     }
+
     @Test
     public void shouldReturnExpectedValueAfterIteration(){
 
         // given
-        Branch root = new BranchImpl("Root");
+        BranchImpl root = new BranchImpl("Root");
         Leaf leafOne = new LeafImpl("LeafOne");
         Leaf leafFive = new LeafImpl("LeafFive");
         root.addSubLeaf(leafOne);
         root.addSubLeaf(leafFive);
-        Branch branchOne = new BranchImpl("BranchOne");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
         root.addSubBranch(branchOne);
         Leaf leafTwo = new LeafImpl("LeafTwo");
         branchOne.addSubLeaf(leafTwo);
-        Branch branchTwo = new BranchImpl("BranchTwo");
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
         branchOne.addSubBranch(branchTwo);
         Leaf leafThree = new LeafImpl("LeafThree");
         Leaf leafFour = new LeafImpl("LeafFour");
@@ -215,15 +218,16 @@ public class LeafIteratorTest {
         // then
         assertThat(leafs, containsInAnyOrder(leafOne,leafTwo,leafThree,leafFour,leafFive));
     }
+
     @Test
     public void shouldReturnOneLeafFromDoubleEmptyBranch(){
         // given
-        Branch root = new BranchImpl("Root");
-        Branch branchOne = new BranchImpl("BranchOne");
-        Branch branchTwo = new BranchImpl("BranchTwo");
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
         root.addSubBranch(branchOne);
         root.addSubBranch(branchTwo);
-        Branch branchThree = new BranchImpl("BranchThree");
+        BranchImpl branchThree = new BranchImpl("BranchThree");
         branchTwo.addSubBranch(branchThree);
         Leaf leafOne = new LeafImpl("LeafOne");
         branchThree.addSubLeaf(leafOne);
@@ -236,23 +240,24 @@ public class LeafIteratorTest {
         // then
         assertThat(leafs, contains(leafOne));
     }
+
     @Test
     public void shouldReturnBottomLeafsFromTrippleSubbranchesAndSomeEmptyBranches(){
         // given
-        Branch root = new BranchImpl("Root");
-        Branch branchOne = new BranchImpl("BranchOne");
-        Branch branchTwo = new BranchImpl("BranchTwo");
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
         root.addSubBranch(branchOne);
         root.addSubBranch(branchTwo);
-        Branch branchThree = new BranchImpl("BranchThree");
-        Branch branchFour = new BranchImpl("BranchFour");
+        BranchImpl branchThree = new BranchImpl("BranchThree");
+        BranchImpl branchFour = new BranchImpl("BranchFour");
         branchOne.addSubBranch(branchThree);
         branchOne.addSubBranch(branchFour);
-        Branch branchFive = new BranchImpl("BranchFive");
+        BranchImpl branchFive = new BranchImpl("BranchFive");
         branchTwo.addSubBranch(branchFive);
-        Branch branchSix = new BranchImpl("BranchSix");
-        Branch branchSeven = new BranchImpl("BranchSeven");
-        Branch branchEight = new BranchImpl("BranchEight");
+        BranchImpl branchSix = new BranchImpl("BranchSix");
+        BranchImpl branchSeven = new BranchImpl("BranchSeven");
+        BranchImpl branchEight = new BranchImpl("BranchEight");
         branchThree.addSubBranch(branchSix);
         branchFour.addSubBranch(branchSeven);
         branchFive.addSubBranch(branchEight);
@@ -272,12 +277,13 @@ public class LeafIteratorTest {
         // then
         assertThat(leafs, containsInAnyOrder(leafOne,leafTwo,leafThree,leafFour));
     }
+
     @Test
     public void shoudlReturnNoLeafForTreeWithJustEmptyBranchesAndSubbranches(){
         // given
-        Branch root = new BranchImpl("Root");
-        Branch branchOne = new BranchImpl("BranchOne");
-        Branch branchTwo = new BranchImpl("BranchTwo");
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
         root.addSubBranch(branchOne);
         root.addSubBranch(branchTwo);
         Branch branchThree = new BranchImpl("BranchThree");

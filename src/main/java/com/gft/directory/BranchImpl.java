@@ -15,19 +15,18 @@ public class BranchImpl implements Branch{
         this.branchName = branchName;
     }
 
-    @Override
     public void addSubBranch(Branch subBranch) {
 
         branches.add(subBranch);
     }
 
-    @Override
+
     public void addSubLeaf(Leaf subLeaf) {
 
             leafs.add(subLeaf);
     }
 
-    @Override
+
     public void addSubLeaf(Leaf leafOne, Leaf leafTwo) {
 
         leafs.add(leafOne);
