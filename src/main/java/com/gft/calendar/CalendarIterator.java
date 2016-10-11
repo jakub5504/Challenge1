@@ -31,18 +31,5 @@ public class CalendarIterator implements Iterator<LocalDate>{
         this.localDate = currentDate;
     }
 
-    public LocalDate getLocalDate() {
-        return localDate;
-    }
 
-    public void setLocalDate(LocalDate localDate) {
-        this.localDate = localDate;
-    }
-
-    @Override
-    public String toString() {
-        return "CalendarIterator{" +
-                "localDate=" + localDate +
-                '}';
-    }
 }

@@ -11,9 +11,4 @@ public class LeafImpl implements Leaf {
         this.leafName = leafName;
     }
 
-
-    @Override
-    public String getLeafName() {
-        return leafName;
-    }
 }

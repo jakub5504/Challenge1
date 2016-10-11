@@ -41,7 +41,4 @@ public class BranchImpl implements Branch{
         return leafs;
     }
 
-    public String getBranchName() {
-        return branchName;
-    }
 }
