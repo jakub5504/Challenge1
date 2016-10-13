@@ -6,6 +6,7 @@ import java.util.LinkedList;
  * Created by jbki on 10/11/2016.
  */
 public class NodeImpl implements Node {
+    private LinkedList<Node> children = new LinkedList<>();
 
     public NodeImpl() {
 

@@ -302,6 +302,78 @@ public class LeafIteratorTest {
 
         // then
         assertThat(leafs.isEmpty(),equalTo(true));
+    }
 
+    @Test
+    public void shoudlFindLeafInAnotherCombination() {
+        // given
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
+        root.addSubBranch(branchOne);
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
+        root.addSubBranch(branchTwo);
+        LeafImpl leaf = new LeafImpl("LeafOne");
+        branchTwo.addSubLeaf(leaf);
+
+        // when
+        LeafIterable leafIterable = new LeafIterable(root);
+        LeafIterator leafIterator = leafIterable.iterator();
+        List<Leaf> leafs = Lists.newArrayList(leafIterator);
+
+        // then
+        assertThat(leafs, containsInAnyOrder(leaf));
+    }
+    @Test
+    public void shouldReturnAllLeafsInDifferentCombination(){
+        // given
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
+        BranchImpl branchThree = new BranchImpl("BranchThree");
+        BranchImpl branchFour = new BranchImpl("BranchFour");
+        BranchImpl branchFive = new BranchImpl("BranchFive");
+        root.addSubBranch(branchOne);
+        root.addSubBranch(branchTwo);
+        branchOne.addSubBranch(branchThree);
+        branchOne.addSubBranch(branchFour);
+        branchFour.addSubBranch(branchFive);
+        LeafImpl leafOne = new LeafImpl("LeafOne");
+        LeafImpl leafTwo = new LeafImpl("LeafTwo");
+        branchTwo.addSubLeaf(leafOne);
+        branchFive.addSubLeaf(leafTwo);
+
+        // when
+        LeafIterable leafIterable = new LeafIterable(root);
+        LeafIterator leafIterator = leafIterable.iterator();
+        List<Leaf> leafs = Lists.newArrayList(leafIterator);
+
+        // then
+        assertThat(leafs, containsInAnyOrder(leafOne,leafTwo));
+    }
+
+    @Test
+    public void shouldReturnLeafsInVerticalCombination(){
+        // given
+        BranchImpl root = new BranchImpl("Root");
+        BranchImpl branchOne = new BranchImpl("BranchOne");
+        BranchImpl branchTwo = new BranchImpl("BranchTwo");
+        BranchImpl branchThree = new BranchImpl("BranchThree");
+        BranchImpl branchFour = new BranchImpl("BranchFour");
+        root.addSubBranch(branchOne);
+        root.addSubBranch(branchTwo);
+        branchTwo.addSubBranch(branchThree);
+        branchThree.addSubBranch(branchFour);
+        LeafImpl leafOne = new LeafImpl("LeafOne");
+        LeafImpl leafTwo = new LeafImpl("LeafTwo");
+        branchTwo.addSubLeaf(leafOne);
+        branchFour.addSubLeaf(leafTwo);
+
+        // when
+        LeafIterable leafIterable = new LeafIterable(root);
+        LeafIterator leafIterator = leafIterable.iterator();
+        List<Leaf> leafs = Lists.newArrayList(leafIterator);
+
+        // then
+        assertThat(leafs, containsInAnyOrder(leafOne,leafTwo));
     }
 }
