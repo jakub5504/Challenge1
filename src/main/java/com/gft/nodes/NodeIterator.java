@@ -1,6 +1,6 @@
 package com.gft.nodes;
 
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -8,36 +8,25 @@ import java.util.NoSuchElementException;
 
 public class NodeIterator implements Iterator<Node> {
 
-    private LinkedList<Node> children = new LinkedList<>();
+    private LinkedList<Node> knownDescendants = new LinkedList<>();
 
-    NodeIterator(Node root) {
-        this.children = root.getChildNodes();
+    NodeIterator(@NotNull Node root) {
+        this.knownDescendants = root.getChildNodes();
     }
 
     @Override
     public boolean hasNext() {
-        return !children.isEmpty();
+        return !knownDescendants.isEmpty();
     }
 
     @Override
     public Node next() {
-
-        Node returnNode = findAndPushTheDeepestLeaf();
-        if (returnNode == null) {
+        if (knownDescendants.isEmpty()) {
             throw new NoSuchElementException();
         }
-        return returnNode;
-    }
-
-    @Nullable
-    private Node findAndPushTheDeepestLeaf() {
-        if (children.isEmpty()) {
-            return null;
-        }
-
-        Node node = children.get(0);
-        children.remove(0);
-        children.addAll(0, node.getChildNodes());
+        Node node = knownDescendants.get(0);
+        knownDescendants.remove(0);
+        knownDescendants.addAll(0, node.getChildNodes());
         return node;
     }
 

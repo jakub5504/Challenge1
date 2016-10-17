@@ -1,14 +1,12 @@
 package com.gft.nodes;
 
+import org.jetbrains.annotations.NotNull;
 
-/**
- * Created by jbki on 10/11/2016.
- */
 public class NodeIterable implements Iterable<Node> {
-
+    @NotNull
     private Node root;
 
-    public NodeIterable(Node root) {
+    public NodeIterable(@NotNull Node root) {
         this.root = root;
     }
 

@@ -3,16 +3,11 @@ package com.gft.directorytest;
 import com.gft.directory.*;
 import com.google.common.collect.Lists;
 import org.junit.Test;
-
 import java.util.Iterator;
 import java.util.List;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-/**
- * Created by jbki on 10/3/2016.
- */
 public class LeafIteratorTest {
 
 
@@ -323,6 +318,7 @@ public class LeafIteratorTest {
         // then
         assertThat(leafs, containsInAnyOrder(leaf));
     }
+
     @Test
     public void shouldReturnAllLeafsInDifferentCombination(){
         // given

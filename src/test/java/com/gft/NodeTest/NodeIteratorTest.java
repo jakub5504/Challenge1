@@ -14,16 +14,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-/**
- * Created by jbki on 10/11/2016.
- */
 public class NodeIteratorTest {
 
     @Test
     public void shouldReturnFirstNode(){
 
         // given
-        Node root = new NodeImpl();
+        NodeImpl root = new NodeImpl();
         Node firstNode = new NodeImpl();
         Node secondNode = new NodeImpl();
         root.addChildNode(secondNode);
@@ -42,9 +39,9 @@ public class NodeIteratorTest {
     @Test
     public void shoudlReturnNoNodeForTreeWithJustEmptyBranchesAndSubbranches2() {
         // given
-        Node root = new NodeImpl();
-        Node branchOne = new NodeImpl();
-        Node branchTwo = new NodeImpl();
+        NodeImpl root = new NodeImpl();
+        NodeImpl branchOne = new NodeImpl();
+        NodeImpl branchTwo = new NodeImpl();
         root.addChildNode(branchOne);
         root.addChildNode(branchTwo);
         Node branchThree = new NodeImpl();
@@ -67,7 +64,7 @@ public class NodeIteratorTest {
 
     @Test
     public void shouldReturnAllNodesForTwiceHasnext(){
-        Node root = new NodeImpl();
+        NodeImpl root = new NodeImpl();
         Node nodeOne = new NodeImpl();
         Node nodeTwo = new NodeImpl();
         root.addChildNode(nodeOne);
@@ -85,21 +82,21 @@ public class NodeIteratorTest {
     public void shouldReturnAllNodesFromRootandSubroots(){
 
         // given
-        Node root = new NodeImpl();
-        Node branchOne = new NodeImpl();
-        Node branchTwo = new NodeImpl();
-        Node branchThree = new NodeImpl();
+        NodeImpl root = new NodeImpl();
+        NodeImpl branchOne = new NodeImpl();
+        NodeImpl branchTwo = new NodeImpl();
+        NodeImpl branchThree = new NodeImpl();
         root.addChildNode(branchOne);
         root.addChildNode(branchTwo);
         root.addChildNode(branchThree);
-        Node NodeOne = new NodeImpl();
-        Node NodeTwo = new NodeImpl();
+        NodeImpl NodeOne = new NodeImpl();
+        NodeImpl NodeTwo = new NodeImpl();
         branchOne.addChildNode(NodeOne);
         branchTwo.addChildNode(NodeTwo);
-        Node branchFour = new NodeImpl();
+        NodeImpl branchFour = new NodeImpl();
         branchThree.addChildNode(branchFour);
-        Node NodeThree = new NodeImpl();
-        Node NodeFour = new NodeImpl();
+        NodeImpl NodeThree = new NodeImpl();
+        NodeImpl NodeFour = new NodeImpl();
         branchFour.addChildNode(NodeThree);
         branchFour.addChildNode(NodeFour);
 
@@ -117,10 +114,10 @@ public class NodeIteratorTest {
     public void shouldReturnAllNodesFromMoreThenTwoBranchesInRoot(){
 
         // given
-        Node root = new NodeImpl();
-        Node branchOne = new NodeImpl();
-        Node branchTwo = new NodeImpl();
-        Node branchThree = new NodeImpl();
+        NodeImpl root = new NodeImpl();
+        NodeImpl branchOne = new NodeImpl();
+        NodeImpl branchTwo = new NodeImpl();
+        NodeImpl branchThree = new NodeImpl();
         root.addChildNode(branchOne);
         root.addChildNode(branchTwo);
         root.addChildNode(branchThree);
@@ -145,9 +142,9 @@ public class NodeIteratorTest {
     public void shouldReturnNodesFromTwoBranchesInRoot(){
 
         // given
-        Node root = new NodeImpl();
-        Node BranchOne = new NodeImpl();
-        Node BranchTwo = new NodeImpl();
+        NodeImpl root = new NodeImpl();
+        NodeImpl BranchOne = new NodeImpl();
+        NodeImpl BranchTwo = new NodeImpl();
         root.addChildNode(BranchOne);
         root.addChildNode(BranchTwo);
         Node NodeOne = new NodeImpl();
@@ -183,7 +180,7 @@ public class NodeIteratorTest {
     public void shouldReturnNewlyCreatedNode(){
 
         // given
-        Node root = new NodeImpl();
+        NodeImpl root = new NodeImpl();
         Node NodeOne = new NodeImpl();
         root.addChildNode(NodeOne);
 
@@ -202,7 +199,7 @@ public class NodeIteratorTest {
     public void shouldReturnAllNodesFromRootDirectory(){
 
         // given
-        Node root = new NodeImpl();
+        NodeImpl root = new NodeImpl();
         Node NodeOne = new NodeImpl();
         Node NodeTwo = new NodeImpl();
         root.addChildNode(NodeOne);
@@ -221,9 +218,9 @@ public class NodeIteratorTest {
     public void nextShouldWorkWithoutHasnext(){
 
         // given
-        Node root = new NodeImpl();
-        Node branchOne = new NodeImpl();
-        Node branchTwo = new NodeImpl();
+        NodeImpl root = new NodeImpl();
+        NodeImpl branchOne = new NodeImpl();
+        NodeImpl branchTwo = new NodeImpl();
         root.addChildNode(branchOne);
         branchOne.addChildNode(branchTwo);
         Node NodeOne = new NodeImpl();
@@ -241,8 +238,8 @@ public class NodeIteratorTest {
     public void shoudReturnAllNodesWhenOneBrancheInRootPresent(){
 
         // given
-        Node root = new NodeImpl();
-        Node BranchOne = new NodeImpl();
+        NodeImpl root = new NodeImpl();
+        NodeImpl BranchOne = new NodeImpl();
         Node NodeOne = new NodeImpl();
         Node NodeTwo = new NodeImpl();
         root.addChildNode(NodeOne);
@@ -266,16 +263,16 @@ public class NodeIteratorTest {
     public void shouldReturnExpectedValueAfterIteration(){
 
         // given
-        Node root = new NodeImpl();
+        NodeImpl root = new NodeImpl();
         Node NodeOne = new NodeImpl();
         Node NodeFive = new NodeImpl();
         root.addChildNode(NodeOne);
         root.addChildNode(NodeFive);
-        Node branchOne = new NodeImpl();
+        NodeImpl branchOne = new NodeImpl();
         root.addChildNode(branchOne);
         Node NodeTwo = new NodeImpl();
         branchOne.addChildNode(NodeTwo);
-        Node branchTwo = new NodeImpl();
+        NodeImpl branchTwo = new NodeImpl();
         branchOne.addChildNode(branchTwo);
         Node NodeThree = new NodeImpl();
         Node NodeFour = new NodeImpl();
@@ -294,12 +291,12 @@ public class NodeIteratorTest {
     @Test
     public void shouldReturnOneNodeFromDoubleEmptyBranch(){
         // given
-        Node root = new NodeImpl();
+        NodeImpl root = new NodeImpl();
         Node branchOne = new NodeImpl();
-        Node branchTwo = new NodeImpl();
+        NodeImpl branchTwo = new NodeImpl();
         root.addChildNode(branchOne);
         root.addChildNode(branchTwo);
-        Node branchThree = new NodeImpl();
+        NodeImpl branchThree = new NodeImpl();
         branchTwo.addChildNode(branchThree);
         Node NodeOne = new NodeImpl();
         branchThree.addChildNode(NodeOne);
@@ -313,23 +310,24 @@ public class NodeIteratorTest {
         assertThat(Nodes, containsInAnyOrder(NodeOne,branchOne,branchThree,branchTwo));
     }
 
+
     @Test
     public void shouldReturnBottomNodesFromTrippleSubbranchesAndSomeEmptyBranches(){
         // given
-        Node root = new NodeImpl();
-        Node branchOne = new NodeImpl();
-        Node branchTwo = new NodeImpl();
+        NodeImpl root = new NodeImpl();
+        NodeImpl branchOne = new NodeImpl();
+        NodeImpl branchTwo = new NodeImpl();
         root.addChildNode(branchOne);
         root.addChildNode(branchTwo);
-        Node branchThree = new NodeImpl();
-        Node branchFour = new NodeImpl();
+        NodeImpl branchThree = new NodeImpl();
+        NodeImpl branchFour = new NodeImpl();
         branchOne.addChildNode(branchThree);
         branchOne.addChildNode(branchFour);
-        Node branchFive = new NodeImpl();
+        NodeImpl branchFive = new NodeImpl();
         branchTwo.addChildNode(branchFive);
-        Node branchSix = new NodeImpl();
-        Node branchSeven = new NodeImpl();
-        Node branchEight = new NodeImpl();
+        NodeImpl branchSix = new NodeImpl();
+        NodeImpl branchSeven = new NodeImpl();
+        NodeImpl branchEight = new NodeImpl();
         branchThree.addChildNode(branchSix);
         branchFour.addChildNode(branchSeven);
         branchFive.addChildNode(branchEight);
