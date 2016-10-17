@@ -3,23 +3,20 @@ package com.gft.directory;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-/**
- * Created by jbki on 10/3/2016.
- */
 public class LeafIterator implements Iterator<Leaf> {
 
-    public static State DirectoryState = State.BRANCHES_EMPTY_LEAFS_EMPTY;
+    private static State DirectoryState = State.BRANCHES_EMPTY_LEAFS_EMPTY;
     private static LinkedList<Leaf> tempLeafList = new LinkedList<>();
     private static LinkedList<Branch> tempBranchList = new LinkedList<>();
     private LinkedList<Branch> branches = new LinkedList<>();
     private LinkedList<Leaf> leafs = new LinkedList<>();
 
-    public LeafIterator(Branch root) {
+    LeafIterator(Branch root) {
         this.branches = root.getBranches();
         this.leafs = root.getLeafs();
     }
 
-    public boolean checkNext(){
+    private boolean checkNext(){
         // Checks if root has some leafs
         if (!leafs.isEmpty()) {
             return true;
@@ -122,7 +119,7 @@ public class LeafIterator implements Iterator<Leaf> {
     }
 
 
-    public void modifyDirectory(State state) {
+    private void modifyDirectory(State state) {
         switch (state) {
             case BRANCHES_EMPTY_LEAFS_EMPTY:
                 branches.remove(0);

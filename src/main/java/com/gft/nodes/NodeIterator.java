@@ -13,13 +13,10 @@ public class NodeIterator implements Iterator<Node> {
     NodeIterator(@NotNull Node root) {
         this.knownDescendants = root.getChildNodes();
     }
-
-    @Override
     public boolean hasNext() {
         return !knownDescendants.isEmpty();
     }
 
-    @Override
     public Node next() {
         if (knownDescendants.isEmpty()) {
             throw new NoSuchElementException();

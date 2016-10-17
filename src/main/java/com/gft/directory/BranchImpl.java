@@ -2,18 +2,10 @@ package com.gft.directory;
 
 import java.util.LinkedList;
 
-/**
- * Created by jbki on 10/3/2016.
- */
 public class BranchImpl implements Branch{
 
     private LinkedList<Branch> branches = new LinkedList<>();
     private LinkedList<Leaf> leafs = new LinkedList<>();
-    private String branchName;
-
-    public BranchImpl(String branchName ) {
-        this.branchName = branchName;
-    }
 
     public void addSubBranch(Branch subBranch) {
 

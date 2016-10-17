@@ -27,7 +27,7 @@ public class CalendarIterator implements Iterator<LocalDate>{
         return localDate;
     }
 
-    public CalendarIterator(LocalDate currentDate ){
+    CalendarIterator(LocalDate currentDate){
         this.localDate = currentDate;
     }
 
