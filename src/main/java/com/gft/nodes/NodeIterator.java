@@ -1,57 +1,44 @@
 package com.gft.nodes;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
-/**
- * Created by jbki on 10/11/2016.
- */
 public class NodeIterator implements Iterator<Node> {
 
     private LinkedList<Node> children = new LinkedList<>();
-    private LinkedList<Node> tempChildren = new LinkedList<>();
 
-    public NodeIterator(Node root) {
+    NodeIterator(Node root) {
         this.children = root.getChildNodes();
     }
 
     @Override
     public boolean hasNext() {
-        if (!children.isEmpty()) {
-            return true;
-        }
-        return false;
+        return !children.isEmpty();
     }
 
     @Override
     public Node next() {
 
-            Node returnNode = findAndPushTheDeepestLeaf();
-        if(returnNode.equals(null)){
+        Node returnNode = findAndPushTheDeepestLeaf();
+        if (returnNode == null) {
             throw new NoSuchElementException();
         }
-            return returnNode;
+        return returnNode;
     }
 
-    public Node findAndPushTheDeepestLeaf() {
-
-        Node tempNode= new NodeImpl();
-        if (!children.isEmpty()) {
-            if (!children.get(0).getChildNodes().isEmpty()) {
-                tempNode = children.get(0);
-                tempChildren = children.get(0).getChildNodes();
-                children.remove(0);
-                children.addAll(0, tempChildren);
-
-            }
-            else if (children.get(0).getChildNodes().isEmpty()) {
-                Node returnNode = children.get(0);
-                children.remove(0);
-                return returnNode;
-            }
+    @Nullable
+    private Node findAndPushTheDeepestLeaf() {
+        if (children.isEmpty()) {
+            return null;
         }
-        return tempNode;
+
+        Node node = children.get(0);
+        children.remove(0);
+        children.addAll(0, node.getChildNodes());
+        return node;
     }
 
 }
