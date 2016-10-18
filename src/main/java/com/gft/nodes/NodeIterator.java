@@ -1,17 +1,19 @@
 package com.gft.nodes;
 
+
+import com.google.common.collect.Lists;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
-public class NodeIterator implements Iterator<Node> {
+public final class NodeIterator implements Iterator<Node> {
 
-    private LinkedList<Node> knownDescendants = new LinkedList<>();
+    private final  LinkedList<Node> knownDescendants = new LinkedList<>();
 
     NodeIterator(@NotNull Node root) {
-        this.knownDescendants = root.getChildNodes();
+        this.knownDescendants.addAll(Lists.newArrayList(root.getChildNodes()));
     }
     public boolean hasNext() {
         return !knownDescendants.isEmpty();
@@ -23,7 +25,7 @@ public class NodeIterator implements Iterator<Node> {
         }
         Node node = knownDescendants.get(0);
         knownDescendants.remove(0);
-        knownDescendants.addAll(0, node.getChildNodes());
+        knownDescendants.addAll(0, Lists.newArrayList(node.getChildNodes()));
         return node;
     }
 

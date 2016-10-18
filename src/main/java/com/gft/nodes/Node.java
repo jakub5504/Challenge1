@@ -2,9 +2,9 @@ package com.gft.nodes;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.LinkedList;
+import java.util.Iterator;
 
 public interface Node {
     @NotNull
-    LinkedList<Node> getChildNodes();
+    Iterator<Node> getChildNodes();
 }
